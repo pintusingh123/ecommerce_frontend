@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CardContext";
 
 export default function CartPage() {
+  const navigate = useNavigate();
   const { cartItems, total, removeFromCart, updateQuantity } = useCart();
   const BASEURL =
     import.meta.env.VITE_DJANGO_BASE_URL || "http://127.0.0.1:8000";
@@ -104,7 +106,10 @@ export default function CartPage() {
                 <span>Total</span>
                 <span>${total.toFixed(2)}</span>
               </div>
-              <button className="mt-6 w-full rounded-xl bg-[#fb641b] px-4 py-3 font-semibold text-white transition hover:bg-[#e65d10]">
+              <button 
+                onClick={() => navigate('/checkout')}
+                className="mt-6 w-full rounded-xl bg-[#fb641b] px-4 py-3 font-semibold text-white transition hover:bg-[#e65d10]"
+              >
                 Place Order
               </button>
             </div>

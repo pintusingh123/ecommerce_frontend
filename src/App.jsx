@@ -4,6 +4,7 @@ import ProductList from './pages/ProductList'
 import ProductDetails from './pages/ProductDetails'
 import Navbar from './components/Navbar'
 import CartPage from './pages/CartPage'
+import CheckoutPage from './pages/CheckoutPage'
 
  function App() {
    return (
@@ -14,6 +15,7 @@ import CartPage from './pages/CartPage'
 
       <Route path='/products/:id' element={<ProductDetails/>} />
       <Route path='/cart' element={<CartPage />}  />
+      <Route path='/checkout' element={<CheckoutPage />} />
     </Routes>
    </Router>
    )
