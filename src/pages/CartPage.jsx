@@ -2,12 +2,10 @@ import React from "react";
 import { useCart } from "../context/CardContext";
 
 export default function CartPage() {
-  const { cartItems, removeFromCart, updateQuantity } = useCart();
-
-  const total = cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0,
-  );
+  const { cartItems, total, removeFromCart, updateQuantity } = useCart();
+  const BASEURL =
+    import.meta.env.VITE_DJANGO_BASE_URL || "http://127.0.0.1:8000";
+    // console.log("Cart Items ",cartItems)
 
   return (
     <div className="min-h-screen bg-[#f1f3f6] px-4 py-8 sm:px-6 lg:px-8">
@@ -35,6 +33,15 @@ export default function CartPage() {
                   className="flex flex-col gap-4 rounded-2xl border border-gray-200 p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between"
                 >
                   <div className="flex items-center gap-4">
+                    {item.product_image &&(
+                      <img 
+                      src={`${BASEURL}${item.product_image}`}
+                       alt={item.product_name}
+                       className="w-20 h-20 object-cover rounded-lg" />
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-4">
                     <img
                       src={item.image}
                       alt={item.name}
@@ -42,9 +49,9 @@ export default function CartPage() {
                     />
                     <div>
                       <h2 className="text-lg font-semibold text-gray-800">
-                        {item.name}
+                        {item.product_name}
                       </h2>
-                      <p className="mt-1 text-[#2874f0]">${item.price}</p>
+                      <p className="mt-1 text-[#2874f0]">${item.product_price}</p>
                     </div>
                   </div>
 

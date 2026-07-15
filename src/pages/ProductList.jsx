@@ -30,7 +30,7 @@ function ProductList() {
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#f1f3f6]">
-        <div className="rounded-2xl bg-white px-8 py-6 text-center shadow-lg">
+        <div className="rounded-2xl px-8 py-6 text-center shadow-lg">
           <div className="mx-auto mb-3 h-8 w-8 animate-spin rounded-full border-4 border-[#2874f0] border-t-transparent"></div>
           <p className="text-lg font-semibold text-gray-700">
             Loading amazing products...

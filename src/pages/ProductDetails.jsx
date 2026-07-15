@@ -107,7 +107,7 @@ function ProductDetails() {
               </span>
             </div>
             <button
-              onClick={() => addToCart(product)}
+              onClick={() => addToCart(product.id)}
               className="mt-8 rounded-xl bg-[#fb641b] px-6 py-3 font-semibold text-white shadow-md transition hover:bg-[#e65d10]"
             >
               Add to Cart
