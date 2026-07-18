@@ -1,23 +1,34 @@
 import { createContext, useContext, useEffect, useState } from "react";
+
 import { loginUser, registerUser } from "../api/authApi";
+import { getProfile } from "../api/profileApi";
+
 import { tokenService } from "../services/tokenService";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    !!tokenService.getAccessToken(),
+  );
   const [loading, setLoading] = useState(true);
 
   // Check authentication on app load
   useEffect(() => {
-    const token = tokenService.getAccessToken();
+    const checkAuth = async () => {
+      const token = tokenService.getAccessToken();
 
-    if (token) {
-      setIsAuthenticated(true);
-    }
+      if (token) {
+        setIsAuthenticated(true);
 
-    setLoading(false);
+        await fetchProfile();
+      }
+
+      setLoading(false);
+    };
+
+    checkAuth();
   }, []);
 
   // Register
@@ -41,12 +52,11 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await loginUser(credentials);
 
-      tokenService.setTokens(
-        res.data.access,
-        res.data.refresh
-      );
+      tokenService.setTokens(res.data.access, res.data.refresh);
 
       setIsAuthenticated(true);
+
+      await fetchProfile();
 
       return {
         success: true,
@@ -66,15 +76,39 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(false);
   };
 
+ // profile fetching
+const fetchProfile = async () => {
+  try {
+    const res = await getProfile();
+
+    setUser(res.data);
+
+    return res.data;
+  } catch (error) {
+    console.error(error);
+
+    if (error.response?.status === 401) {
+      tokenService.clearTokens();
+      setIsAuthenticated(false);
+    }
+
+    setUser(null);
+
+    return null;
+  }
+};
+
   return (
     <AuthContext.Provider
       value={{
         user,
+        setUser,
         loading,
         isAuthenticated,
         register,
         login,
         logout,
+        fetchProfile,
       }}
     >
       {children}

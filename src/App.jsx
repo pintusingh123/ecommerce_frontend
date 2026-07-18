@@ -8,6 +8,7 @@ import CheckoutPage from './pages/CheckoutPage'
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
 import Profile from './pages/auth/Profile'
+import EditProfile from './pages/auth/EditProfile'
 
  function App() {
    return (
@@ -17,6 +18,7 @@ import Profile from './pages/auth/Profile'
       <Route path='/' element={<ProductList/>} />
       <Route path='token' element={<Login />} />
       <Route path='/profile' element={<Profile />} />
+      <Route path="/profile/edit" element={<EditProfile />} />
        <Route path='/register' element={<Register />} />
 
       <Route path='/products/:id' element={<ProductDetails/>} />
