@@ -1,88 +1,97 @@
-import React from "react";
 import { createContext, useContext, useState, useEffect } from "react";
+import api from "../api/axios";
+import { useAuth } from "./AuthContext";
 
 const CardContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const { isAuthenticated } = useAuth();
 
-  // for cart
-  const BASEURL =
-    import.meta.env.VITE_DJANGO_BASE_URL || "http://127.0.0.1:8000";
+  const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
 
-  //  fetching Cart from backend
+  // Fetch cart
   const fetchCart = async () => {
+    if (!isAuthenticated) {
+      setCartItems([]);
+      setTotal(0);
+      return;
+    }
+
     try {
-      const res = await fetch(`${BASEURL}/api/cart/`);
-      if (!res.ok) {
-        throw new Error("failed to fetch cart");
-      }
-      const data = await res.json();
-      setCartItems(data.items || []);
-      setTotal(data.total || 0);
+      const res = await api.get("/cart/");
+
+      setCartItems(res.data.items || []);
+      setTotal(res.data.total || 0);
     } catch (error) {
-      console.log("error Fecting cart", error);
+      console.error("Error fetching cart:", error);
     }
   };
 
   useEffect(() => {
     fetchCart();
-  }, []);
+  }, [isAuthenticated]);
 
-  const addToCart = async (productid) => {
-    try {
-      await fetch(`${BASEURL}/api/cart/add/`, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ product_id: productid }),
-      });
-      fetchCart();
-    } catch (error) {
-      console.error("Error adding to cart", error);
-    }
-  };
-
-  const removeFromCart = async (item_id) => {
-    try {
-      await fetch(`${BASEURL}/api/cart/remove/`, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body:JSON.stringify({item_id:item_id})
-      });
-      fetchCart();
-    } catch (error) {
-      console.error("Error removing from cart", error);
-    }
-  };
-
-  const updateQuantity =async (item_id, quantity) => {
-    if(quantity < 1) {
-      await removeFromCart(item_id)
+  // Add to cart
+  const addToCart = async (productId) => {
+    if (!isAuthenticated) {
+      alert("Please login first.");
       return;
     }
-   try{
-      await fetch(`${BASEURL}/api/cart/update/`, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body:JSON.stringify({item_id:item_id , quantity})
-      });
-      fetchCart();
 
-   }catch(error){
-    console.error("error updating quantity", error)
-   }
+    try {
+      await api.post("/cart/add/", {
+        product_id: productId,
+      });
+
+      fetchCart();
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
+  };
+
+  // Remove from cart
+  const removeFromCart = async (itemId) => {
+    try {
+      await api.post("/cart/remove/", {
+        item_id: itemId,
+      });
+
+      fetchCart();
+    } catch (error) {
+      console.error("Error removing item:", error);
+    }
+  };
+
+  // Update quantity
+  const updateQuantity = async (itemId, quantity) => {
+    if (quantity < 1) {
+      await removeFromCart(itemId);
+      return;
+    }
+
+    try {
+      await api.post("/cart/update/", {
+        item_id: itemId,
+        quantity,
+      });
+
+      fetchCart();
+    } catch (error) {
+      console.error("Error updating quantity:", error);
+    }
   };
 
   return (
     <CardContext.Provider
-      value={{ cartItems,total, addToCart, removeFromCart, updateQuantity }}
+      value={{
+        cartItems,
+        total,
+        fetchCart,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+      }}
     >
       {children}
     </CardContext.Provider>

@@ -11,7 +11,14 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-[#f1f3f6] px-4 py-8 sm:px-6 lg:px-8">
+      
       <div className="mx-auto max-w-6xl rounded-[24px] bg-white p-6 shadow-xl sm:p-8">
+                <button
+          onClick={() => navigate("/")}
+          className="mb-6 rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-[#2874f0] transition hover:bg-blue-50"
+        >
+          ← Back to Home
+        </button>
         <h1 className="text-3xl font-bold text-gray-900">Shopping Cart</h1>
         <p className="mt-2 text-gray-600">
           Review your selected items and proceed with confidence.

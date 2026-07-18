@@ -5,6 +5,9 @@ import ProductDetails from './pages/ProductDetails'
 import Navbar from './components/Navbar'
 import CartPage from './pages/CartPage'
 import CheckoutPage from './pages/CheckoutPage'
+import Login from './pages/auth/Login'
+import Register from './pages/auth/Register'
+import Profile from './pages/auth/Profile'
 
  function App() {
    return (
@@ -12,6 +15,9 @@ import CheckoutPage from './pages/CheckoutPage'
     <Navbar />
     <Routes>
       <Route path='/' element={<ProductList/>} />
+      <Route path='token' element={<Login />} />
+      <Route path='/profile' element={<Profile />} />
+       <Route path='/register' element={<Register />} />
 
       <Route path='/products/:id' element={<ProductDetails/>} />
       <Route path='/cart' element={<CartPage />}  />
