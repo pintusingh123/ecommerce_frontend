@@ -1,16 +1,38 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import ProductCards from "../components/ProductCards";
+import Footer from "../components/Footer";
+import Category_search from "../components/Category_search";
+import Pagination from "../components/Pagination";
+
+import useDebounce from "../hooks/useDebounce";
+
 function ProductList() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const debouncedSearch = useDebounce(searchTerm, 500);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
+  const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const BASE_URL =
     import.meta.env.VITE_DJANGO_BASE_URL || "http://127.0.0.1:8000";
 
   useEffect(() => {
-    fetch(`${BASE_URL}/api/products/`)
+    // setLoading(true);
+    let url = `${BASE_URL}/api/products/?page=${currentPage}`;
+
+    if (debouncedSearch) {
+      url += `&search=${debouncedSearch}`;
+    }
+
+    if (selectedCategory) {
+      url += `&category=${selectedCategory}`;
+    }
+    fetch(url)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch products");
@@ -18,15 +40,31 @@ function ProductList() {
         return res.json();
       })
       .then((data) => {
-        setProducts(data);
+        setProducts(data.results);
+        setTotalPages(Math.ceil(data.count / 6));
         setLoading(false);
       })
       .catch((error) => {
         setError(error.message);
         setLoading(false);
       });
-  }, [BASE_URL]);
+  }, [BASE_URL, debouncedSearch, selectedCategory, currentPage]);
 
+  // category fetching
+  useEffect(() => {
+    fetch(`${BASE_URL}/api/categories/`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch categories");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Categories:", data); // Debug
+        setCategories(data);
+      })
+      .catch((err) => console.log(err));
+  }, [BASE_URL]);
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#f1f3f6]">
@@ -52,9 +90,9 @@ function ProductList() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f1f3f6] px-4 py-6 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#080a0d] px-4 pt-6 sm:px-6 lg:px-4">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-6 rounded-3xl bg-gradient-to-r from-[#2874f0] to-[#1f5ed9] px-6 py-8 text-white shadow-lg">
+        <div className="mb-6 rounded-3xl bg-gradient-to-r from-[#0b131f] to-[#0c0e18] px-6 py-8 text-white shadow-lg">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-100">
             Fresh arrivals
           </p>
@@ -66,6 +104,14 @@ function ProductList() {
             experience.
           </p>
         </div>
+        {/* searching and categories */}
+        <Category_search
+          categories={categories}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {products.length > 0 ? (
@@ -78,7 +124,15 @@ function ProductList() {
             </p>
           )}
         </div>
+
+        {/* pagination */}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
       </div>
+      <Footer />
     </div>
   );
 }

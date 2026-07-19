@@ -24,16 +24,7 @@ function Navbar() {
           <span>JhalaCollection</span>
         </Link>
 
-        <div className="hidden flex-1 px-4 md:block">
-          <div className="flex items-center rounded bg-white px-3 py-2 shadow-sm">
-            <span className="text-gray-400">🔍</span>
-            <input
-              type="text"
-              placeholder="Search for products"
-              className="ml-2 w-full bg-transparent text-sm outline-none"
-            />
-          </div>
-        </div>
+
        {/* menu icon */}
        <UserMenu />
       </div>

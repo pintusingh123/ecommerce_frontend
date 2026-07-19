@@ -37,9 +37,7 @@ function Profile() {
 
         <div className="mb-8 flex items-center gap-5">
 
-          <div className="flex h-24 w-24 items-center justify-center rounded-full bg-[#2874f0] text-4xl font-bold text-white">
-            {user.username?.charAt(0).toUpperCase()}
-          </div>
+ 
 
           <div>
             <h1 className="text-3xl font-bold">
