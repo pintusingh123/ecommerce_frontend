@@ -36,6 +36,7 @@ function Category_search({
       {/* Search & Categories */}
       <div className="mb-8 rounded-3xl border border-zinc-800 bg-[#111827] p-6 shadow-xl">
         {/* Search */}
+        
         <div className="relative">
           <IconSearch
             size={20}
