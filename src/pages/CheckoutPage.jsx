@@ -89,8 +89,8 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f1f3f6] px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-3xl rounded-[24px] bg-white p-6 shadow-xl sm:p-8">
+    <div className="min-h-screen bg-[#050b13] px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl rounded-[24px] bg-gray-100 p-6 shadow-xl sm:p-8">
         <h1 className="mb-6 text-3xl font-bold text-gray-900">Checkout</h1>
         
         <div className="mb-8 rounded-xl bg-gray-50 p-4 border border-gray-100">

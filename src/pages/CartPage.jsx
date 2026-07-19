@@ -10,9 +10,9 @@ export default function CartPage() {
     // console.log("Cart Items ",cartItems)
 
   return (
-    <div className="min-h-screen bg-[#f1f3f6] px-4 py-8 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#050b14] px-4 py-8 sm:px-6 lg:px-8">
       
-      <div className="mx-auto max-w-6xl rounded-[24px] bg-white p-6 shadow-xl sm:p-8">
+      <div className="mx-auto max-w-6xl rounded-[24px] bg-gray-100 p-6 shadow-xl sm:p-8">
                 <button
           onClick={() => navigate("/")}
           className="mb-6 rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-[#2874f0] transition hover:bg-blue-50"

@@ -6,6 +6,8 @@ import Category_search from "../components/Category_search";
 import Pagination from "../components/Pagination";
 
 import useDebounce from "../hooks/useDebounce";
+import HeroSection from "../components/hero/HeroSection";
+import HomeFeatures from "../components/hero/HomeFeatures";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -92,18 +94,8 @@ function ProductList() {
   return (
     <div className="min-h-screen bg-[#080a0d] px-4 pt-6 sm:px-6 lg:px-4">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-6 rounded-3xl bg-gradient-to-r from-[#0b131f] to-[#0c0e18] px-6 py-8 text-white shadow-lg">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-100">
-            Fresh arrivals
-          </p>
-          <h1 className="mt-2 text-3xl font-bold sm:text-4xl">
-            Shop the best picks for your home
-          </h1>
-          <p className="mt-3 max-w-2xl text-sm text-blue-100 sm:text-base">
-            Discover stylish essentials with a smooth and modern shopping
-            experience.
-          </p>
-        </div>
+ 
+
         {/* searching and categories */}
         <Category_search
           categories={categories}
@@ -132,7 +124,7 @@ function ProductList() {
           onPageChange={setCurrentPage}
         />
       </div>
-      <Footer />
+    
     </div>
   );
 }
