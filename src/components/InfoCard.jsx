@@ -1,18 +1,19 @@
 function InfoCard({ icon, title, value }) {
   return (
-    <div className="rounded-2xl border border-[#FB87AC]/20 bg-[#221124]/70 p-4.5 backdrop-blur-md transition hover:border-[#FB87AC]/40">
-      <div className="mb-1.5 flex items-center gap-2 text-[#FB87AC]">
+    <div className="rounded-2xl border border-[#e2e2e2] bg-[#f9f9f9] p-4.5 transition hover:border-[#705d00]">
+      <div className="mb-1.5 flex items-center gap-2 text-[#705d00]">
         {icon}
-        <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
+        <span className="font-body text-xs font-bold uppercase tracking-wider text-[#5f5e5e]">
           {title}
         </span>
       </div>
 
-      <p className="text-base font-bold text-white">
+      <p className="font-display text-base font-bold text-[#1a1c1c]">
         {value || "Not provided"}
       </p>
     </div>
   );
 }
 
-export default InfoCard;
+export default InfoCard;
+

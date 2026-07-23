@@ -38,17 +38,17 @@ function HomeFeatures() {
           return (
             <div
               key={index}
-              className="group rounded-3xl border border-[#FB87AC]/20 bg-[#160B18]/80 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-[#FB87AC] hover:shadow-pink-glow-sm"
+              className="group rounded-3xl border border-[#e2e2e2] bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#705d00] hover:shadow-md"
             >
-              <div className="mb-4 inline-flex rounded-2xl bg-[#FB87AC]/15 p-3.5 text-[#FB87AC] transition duration-300 group-hover:scale-110 group-hover:bg-[#FB87AC] group-hover:text-slate-950">
+              <div className="mb-4 inline-flex rounded-2xl bg-[#ffd700]/25 p-3.5 text-[#705d00] transition duration-300 group-hover:scale-110 group-hover:bg-[#705d00] group-hover:text-white">
                 <Icon size={26} />
               </div>
 
-              <h3 className="text-lg font-bold text-white tracking-tight">
+              <h3 className="font-display text-lg font-bold text-[#1a1c1c] tracking-tight">
                 {item.title}
               </h3>
 
-              <p className="mt-1.5 text-xs sm:text-sm text-slate-400 font-medium">
+              <p className="mt-1.5 font-body text-xs sm:text-sm text-[#5f5e5e] font-normal">
                 {item.desc}
               </p>
             </div>
@@ -59,4 +59,5 @@ function HomeFeatures() {
   );
 }
 
-export default HomeFeatures;
+export default HomeFeatures;
+

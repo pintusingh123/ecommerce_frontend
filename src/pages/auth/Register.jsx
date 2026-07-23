@@ -57,21 +57,21 @@ function Register() {
   };
 
   return (
-    <div className="w-full max-w-xl rounded-[36px] border border-[#FB87AC]/25 bg-[#160B18]/90 p-8 shadow-2xl backdrop-blur-2xl">
+    <div className="w-full max-w-xl rounded-[36px] border border-[#e2e2e2] bg-white p-8 shadow-md">
       {/* Header */}
       <div className="mb-8 text-center">
-        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-tr from-[#FB87AC] to-[#E86591] text-slate-950 shadow-pink-glow">
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#705d00] text-white shadow-gold-subtle">
           <IconUserPlus size={30} />
         </div>
 
-        <h2 className="text-3xl font-extrabold text-white tracking-tight">Create Account</h2>
-        <p className="mt-2 text-xs sm:text-sm text-slate-400 font-normal">
+        <h2 className="font-display text-3xl font-extrabold text-[#1a1c1c] tracking-tight">Create Account</h2>
+        <p className="mt-2 font-body text-xs sm:text-sm text-[#5f5e5e] font-normal">
           Join JhalaCollection and enjoy VIP privileges.
         </p>
       </div>
 
       {error && (
-        <div className="mb-6 rounded-2xl border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-xs text-rose-300 font-medium">
+        <div className="mb-6 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs text-rose-700 font-medium">
           {error}
         </div>
       )}
@@ -80,13 +80,13 @@ function Register() {
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {/* Username */}
           <div>
-            <label className="mb-2 block text-xs font-bold text-slate-300 uppercase tracking-wider">
+            <label className="mb-2 block text-xs font-bold text-[#1a1c1c] uppercase tracking-wider">
               Username
             </label>
             <div className="relative">
               <IconUser
                 size={20}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-[#FB87AC]"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-[#705d00]"
               />
               <input
                 type="text"
@@ -95,20 +95,20 @@ function Register() {
                 value={formData.username}
                 onChange={handleChange}
                 required
-                className="w-full rounded-2xl border border-[#FB87AC]/30 bg-[#221226]/90 py-3.5 pl-12 pr-4 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-[#FB87AC] focus:ring-4 focus:ring-[#FB87AC]/20 shadow-inner"
+                className="w-full rounded-2xl border border-[#d0c6ab] bg-[#f9f9f9] py-3.5 pl-12 pr-4 text-sm text-[#1a1c1c] placeholder:text-[#5f5e5e] outline-none transition focus:border-[#705d00] focus:ring-4 focus:ring-[#705d00]/15"
               />
             </div>
           </div>
 
           {/* Email */}
           <div>
-            <label className="mb-2 block text-xs font-bold text-slate-300 uppercase tracking-wider">
+            <label className="mb-2 block text-xs font-bold text-[#1a1c1c] uppercase tracking-wider">
               Email Address
             </label>
             <div className="relative">
               <IconMail
                 size={20}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-[#FB87AC]"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-[#705d00]"
               />
               <input
                 type="email"
@@ -117,7 +117,7 @@ function Register() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full rounded-2xl border border-[#FB87AC]/30 bg-[#221226]/90 py-3.5 pl-12 pr-4 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-[#FB87AC] focus:ring-4 focus:ring-[#FB87AC]/20 shadow-inner"
+                className="w-full rounded-2xl border border-[#d0c6ab] bg-[#f9f9f9] py-3.5 pl-12 pr-4 text-sm text-[#1a1c1c] placeholder:text-[#5f5e5e] outline-none transition focus:border-[#705d00] focus:ring-4 focus:ring-[#705d00]/15"
               />
             </div>
           </div>
@@ -126,13 +126,13 @@ function Register() {
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {/* Password */}
           <div>
-            <label className="mb-2 block text-xs font-bold text-slate-300 uppercase tracking-wider">
+            <label className="mb-2 block text-xs font-bold text-[#1a1c1c] uppercase tracking-wider">
               Password
             </label>
             <div className="relative">
               <IconLock
                 size={20}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-[#FB87AC]"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-[#705d00]"
               />
               <input
                 type={showPassword ? "text" : "password"}
@@ -141,12 +141,12 @@ function Register() {
                 value={formData.password}
                 onChange={handleChange}
                 required
-                className="w-full rounded-2xl border border-[#FB87AC]/30 bg-[#221226]/90 py-3.5 pl-12 pr-12 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-[#FB87AC] focus:ring-4 focus:ring-[#FB87AC]/20 shadow-inner"
+                className="w-full rounded-2xl border border-[#d0c6ab] bg-[#f9f9f9] py-3.5 pl-12 pr-12 text-sm text-[#1a1c1c] placeholder:text-[#5f5e5e] outline-none transition focus:border-[#705d00] focus:ring-4 focus:ring-[#705d00]/15"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#5f5e5e] hover:text-[#1a1c1c]"
               >
                 {showPassword ? (
                   <IconEyeOff size={20} />
@@ -159,13 +159,13 @@ function Register() {
 
           {/* Confirm Password */}
           <div>
-            <label className="mb-2 block text-xs font-bold text-slate-300 uppercase tracking-wider">
+            <label className="mb-2 block text-xs font-bold text-[#1a1c1c] uppercase tracking-wider">
               Confirm Password
             </label>
             <div className="relative">
               <IconLock
                 size={20}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-[#FB87AC]"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-[#705d00]"
               />
               <input
                 type={showConfirmPassword ? "text" : "password"}
@@ -174,12 +174,12 @@ function Register() {
                 value={formData.password2}
                 onChange={handleChange}
                 required
-                className="w-full rounded-2xl border border-[#FB87AC]/30 bg-[#221226]/90 py-3.5 pl-12 pr-12 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-[#FB87AC] focus:ring-4 focus:ring-[#FB87AC]/20 shadow-inner"
+                className="w-full rounded-2xl border border-[#d0c6ab] bg-[#f9f9f9] py-3.5 pl-12 pr-12 text-sm text-[#1a1c1c] placeholder:text-[#5f5e5e] outline-none transition focus:border-[#705d00] focus:ring-4 focus:ring-[#705d00]/15"
               />
               <button
                 type="button"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#5f5e5e] hover:text-[#1a1c1c]"
               >
                 {showConfirmPassword ? (
                   <IconEyeOff size={20} />
@@ -194,7 +194,7 @@ function Register() {
         <button
           type="submit"
           disabled={loading}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#FB87AC] to-[#E86591] py-4 text-base font-extrabold text-slate-950 shadow-pink-glow transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50 mt-4"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#705d00] py-4 text-base font-extrabold text-white shadow-gold-subtle transition hover:bg-[#544600] disabled:cursor-not-allowed disabled:opacity-50 mt-4"
         >
           {loading ? (
             "Creating Account..."
@@ -207,11 +207,11 @@ function Register() {
         </button>
       </form>
 
-      <p className="mt-8 text-center text-xs sm:text-sm text-slate-400 font-medium">
+      <p className="mt-8 text-center font-body text-xs sm:text-sm text-[#5f5e5e] font-medium">
         Already have an account?{" "}
         <Link
           to="/token"
-          className="font-bold text-[#FB87AC] hover:underline"
+          className="font-bold text-[#705d00] hover:underline"
         >
           Sign In
         </Link>

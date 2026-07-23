@@ -5,18 +5,20 @@ import ProductList from "./ProductList";
 
 function Home() {
   return (
-    <div className="min-h-screen bg-[#0B060C] px-4 pt-6 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <div className="min-h-screen bg-[#f9f9f9] flex flex-col justify-between">
+      <div className="mx-auto w-full max-w-7xl px-4 pt-6 sm:px-6 lg:px-8 flex-1">
         <HeroSection />
         <HomeFeatures />
         <div id="products">
           <ProductList />
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }
 
 export default Home;
+
+
 

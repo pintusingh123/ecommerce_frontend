@@ -19,10 +19,10 @@ function Profile() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#0B060C] px-4">
-        <div className="rounded-3xl border border-[#FB87AC]/30 bg-[#160B18]/90 px-10 py-8 text-center shadow-2xl backdrop-blur-xl">
-          <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-4 border-[#FB87AC] border-t-transparent shadow-pink-glow"></div>
-          <p className="text-base font-bold text-white tracking-wide">
+      <div className="flex min-h-screen items-center justify-center bg-[#f9f9f9] px-4">
+        <div className="rounded-3xl border border-[#e2e2e2] bg-white px-10 py-8 text-center shadow-md">
+          <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-4 border-[#705d00] border-t-transparent"></div>
+          <p className="font-display text-base font-bold text-[#1a1c1c] tracking-wide">
             Loading profile...
           </p>
         </div>
@@ -32,12 +32,12 @@ function Profile() {
 
   if (!user) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#0B060C] px-4">
-        <div className="rounded-3xl border border-rose-500/30 bg-[#160B18]/90 p-10 text-center shadow-2xl backdrop-blur-xl">
-          <h2 className="text-2xl font-bold text-rose-400">User Not Found</h2>
+      <div className="flex min-h-screen items-center justify-center bg-[#f9f9f9] px-4">
+        <div className="rounded-3xl border border-rose-200 bg-white p-10 text-center shadow-md">
+          <h2 className="font-display text-2xl font-bold text-rose-600">User Not Found</h2>
           <button
             onClick={() => navigate("/token")}
-            className="mt-6 rounded-2xl bg-gradient-to-r from-[#FB87AC] to-[#E86591] px-8 py-3 text-sm font-bold text-slate-950 shadow-pink-glow"
+            className="mt-6 rounded-2xl bg-[#705d00] px-8 py-3 text-sm font-bold text-white shadow-sm"
           >
             Go to Login
           </button>
@@ -51,35 +51,35 @@ function Profile() {
     : user.username;
 
   return (
-    <div className="min-h-screen bg-[#0B060C] px-4 py-10 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#f9f9f9] px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
         <button
           onClick={() => navigate("/")}
-          className="mb-8 flex items-center gap-2 rounded-full border border-[#FB87AC]/30 bg-[#160B18]/80 px-5 py-2.5 text-xs sm:text-sm font-bold text-[#FB87AC] backdrop-blur-md transition hover:border-[#FB87AC] hover:bg-[#FB87AC]/20 shadow-pink-glow-sm"
+          className="mb-8 flex items-center gap-2 rounded-full border border-[#d0c6ab] bg-white px-5 py-2.5 text-xs sm:text-sm font-bold text-[#705d00] shadow-sm transition hover:border-[#705d00] hover:bg-[#f3f3f4]"
         >
           <IconArrowLeft size={18} />
           Back to Home
         </button>
 
-        <div className="rounded-[36px] border border-[#FB87AC]/25 bg-[#160B18]/85 p-6 backdrop-blur-2xl shadow-2xl sm:p-10">
+        <div className="rounded-[36px] border border-[#e2e2e2] bg-white p-6 shadow-md sm:p-10">
           {/* Header Banner */}
-          <div className="mb-8 flex flex-wrap items-center justify-between gap-6 border-b border-[#FB87AC]/15 pb-8">
+          <div className="mb-8 flex flex-wrap items-center justify-between gap-6 border-b border-[#e2e2e2] pb-8">
             <div className="flex items-center gap-5">
-              <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-tr from-[#FB87AC] to-[#E86591] text-slate-950 shadow-pink-glow text-3xl font-black">
+              <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-[#705d00] text-white shadow-gold-subtle text-3xl font-black font-display">
                 {fullName.charAt(0).toUpperCase()}
               </div>
 
               <div>
-                <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                <h1 className="font-display text-2xl sm:text-3xl font-extrabold text-[#1a1c1c] tracking-tight">
                   {fullName}
                 </h1>
-                <p className="mt-1 text-sm font-medium text-[#FB87AC]">{user.email}</p>
+                <p className="mt-1 font-body text-sm font-medium text-[#705d00]">{user.email}</p>
               </div>
             </div>
 
             <Link
               to="/profile/edit"
-              className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-[#FB87AC] to-[#E86591] px-6 py-3 text-sm font-extrabold text-slate-950 shadow-pink-glow transition hover:scale-105"
+              className="flex items-center gap-2 rounded-2xl bg-[#705d00] px-6 py-3 text-sm font-extrabold text-white shadow-gold-subtle transition hover:bg-[#544600] hover:scale-105"
             >
               <IconEdit size={19} />
               Edit Profile
@@ -149,4 +149,5 @@ function Profile() {
 }
 
 export default Profile;
+
 

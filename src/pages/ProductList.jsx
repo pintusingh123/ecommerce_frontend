@@ -70,9 +70,9 @@ function ProductList() {
   if (loading) {
     return (
       <div className="flex min-h-[400px] items-center justify-center bg-transparent py-16">
-        <div className="rounded-3xl border border-[#FB87AC]/30 bg-[#160B18]/90 px-10 py-8 text-center shadow-2xl backdrop-blur-xl">
-          <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-4 border-[#FB87AC] border-t-transparent shadow-pink-glow"></div>
-          <p className="text-base font-bold text-white tracking-wide">
+        <div className="rounded-3xl border border-[#e2e2e2] bg-white px-10 py-8 text-center shadow-md">
+          <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-4 border-[#705d00] border-t-transparent"></div>
+          <p className="font-display text-base font-bold text-[#1a1c1c] tracking-wide">
             Loading curated items...
           </p>
         </div>
@@ -83,9 +83,9 @@ function ProductList() {
   if (error) {
     return (
       <div className="flex min-h-[400px] items-center justify-center bg-transparent px-4 py-16">
-        <div className="rounded-3xl border border-rose-500/30 bg-[#160B18]/90 px-10 py-8 text-center shadow-2xl backdrop-blur-xl">
-          <h2 className="text-2xl font-bold text-rose-400">Unable to load products</h2>
-          <p className="mt-2 text-sm text-slate-300 font-medium">{error}</p>
+        <div className="rounded-3xl border border-rose-200 bg-white px-10 py-8 text-center shadow-md">
+          <h2 className="font-display text-2xl font-bold text-rose-600">Unable to load products</h2>
+          <p className="mt-2 font-body text-sm text-[#5f5e5e] font-medium">{error}</p>
         </div>
       </div>
     );
@@ -109,9 +109,9 @@ function ProductList() {
             <ProductCards key={product.id} product={product} />
           ))
         ) : (
-          <div className="col-span-full rounded-3xl border border-[#FB87AC]/20 bg-[#160B18]/80 p-12 text-center backdrop-blur-xl shadow-xl">
-            <p className="text-lg font-bold text-white">No Items Found</p>
-            <p className="mt-2 text-sm text-slate-400 font-medium">Try searching for a different keyword or resetting your category filter.</p>
+          <div className="col-span-full rounded-3xl border border-[#e2e2e2] bg-white p-12 text-center shadow-sm">
+            <p className="font-display text-lg font-bold text-[#1a1c1c]">No Items Found</p>
+            <p className="mt-2 font-body text-sm text-[#5f5e5e] font-normal">Try searching for a different keyword or resetting your category filter.</p>
           </div>
         )}
       </div>
@@ -127,4 +127,5 @@ function ProductList() {
 }
 
 export default ProductList;
+
 

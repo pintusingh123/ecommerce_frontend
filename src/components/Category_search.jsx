@@ -8,12 +8,12 @@ function Category_search({
   setSelectedCategory,
 }) {
   return (
-    <div id="search-section" className="mb-10 rounded-[32px] border border-[#FB87AC]/25 bg-[#160B18]/80 p-6 backdrop-blur-xl shadow-2xl shadow-black/40">
+    <div id="search-section" className="mb-10 rounded-[32px] border border-[#e2e2e2] bg-white p-6 shadow-sm">
       {/* Search Input */}
       <div className="relative">
         <IconSearch
           size={22}
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-[#FB87AC]"
+          className="absolute left-4 top-1/2 -translate-y-1/2 text-[#705d00]"
         />
 
         <input
@@ -21,7 +21,7 @@ function Category_search({
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search items by name, category, or description..."
-          className="w-full rounded-2xl border border-[#FB87AC]/30 bg-[#221226]/90 py-3.5 pl-12 pr-4 text-white placeholder:text-slate-400 outline-none transition-all duration-200 focus:border-[#FB87AC] focus:ring-4 focus:ring-[#FB87AC]/20 shadow-inner"
+          className="w-full rounded-2xl border border-[#d0c6ab] bg-[#f9f9f9] py-3.5 pl-12 pr-4 text-sm text-[#1a1c1c] placeholder:text-[#5f5e5e] outline-none transition-all duration-200 focus:border-[#705d00] focus:ring-4 focus:ring-[#705d00]/15"
         />
       </div>
 
@@ -31,8 +31,8 @@ function Category_search({
           onClick={() => setSelectedCategory("")}
           className={`rounded-full px-5 py-2 text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 ${
             selectedCategory === ""
-              ? "bg-gradient-to-r from-[#FB87AC] to-[#E86591] text-slate-950 shadow-pink-glow"
-              : "border border-[#FB87AC]/30 bg-[#221226]/80 text-slate-200 hover:border-[#FB87AC] hover:bg-[#FB87AC]/20 hover:text-white"
+              ? "bg-[#705d00] text-white shadow-sm"
+              : "border border-[#e2e2e2] bg-[#f3f3f4] text-[#1a1c1c] hover:border-[#705d00] hover:bg-white"
           }`}
         >
           All Items
@@ -45,8 +45,8 @@ function Category_search({
               onClick={() => setSelectedCategory(category.slug)}
               className={`rounded-full px-5 py-2 text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 ${
                 selectedCategory === category.slug
-                  ? "bg-gradient-to-r from-[#FB87AC] to-[#E86591] text-slate-950 shadow-pink-glow"
-                  : "border border-[#FB87AC]/30 bg-[#221226]/80 text-slate-200 hover:border-[#FB87AC] hover:bg-[#FB87AC]/20 hover:text-white"
+                  ? "bg-[#705d00] text-white shadow-sm"
+                  : "border border-[#e2e2e2] bg-[#f3f3f4] text-[#1a1c1c] hover:border-[#705d00] hover:bg-white"
               }`}
             >
               {category.name}
@@ -58,4 +58,5 @@ function Category_search({
 }
 
 export default Category_search;
+
 

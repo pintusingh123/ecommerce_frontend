@@ -27,22 +27,22 @@ function UserMenu() {
     <div className="relative">
       <button
         onClick={() => setOpenMenu((prev) => !prev)}
-        className="flex items-center justify-center rounded-xl border border-[#FB87AC]/30 bg-[#FB87AC]/10 p-2.5 text-[#FB87AC] transition duration-200 hover:border-[#FB87AC] hover:bg-[#FB87AC]/20 shadow-pink-glow-sm"
+        className="flex items-center justify-center rounded-xl border border-[#d0c6ab] bg-[#f9f9f9] p-2.5 text-[#705d00] transition duration-200 hover:border-[#705d00] hover:bg-[#f3f3f4]"
       >
         <IconMenu2 size={22} />
       </button>
 
       {openMenu && (
-        <div className="absolute right-0 mt-3 w-60 overflow-hidden rounded-2xl border border-[#FB87AC]/30 bg-[#160E18]/95 py-2 shadow-2xl backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-200">
+        <div className="absolute right-0 mt-3 w-60 overflow-hidden rounded-2xl border border-[#e2e2e2] bg-white py-2 shadow-xl backdrop-blur-md animate-in fade-in zoom-in-95 duration-200">
           
           {/* Profile */}
           {isAuthenticated && (
             <Link
               to="/profile"
               onClick={closeMenu}
-              className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-[#FB87AC]/20 hover:text-[#FB87AC]"
+              className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-[#1a1c1c] transition hover:bg-[#f3f3f4] hover:text-[#705d00]"
             >
-              <IconUser size={19} className="text-[#FB87AC]" />
+              <IconUser size={19} className="text-[#705d00]" />
               My Profile
             </Link>
           )}
@@ -52,10 +52,10 @@ function UserMenu() {
             <Link
               to="/token"
               onClick={closeMenu}
-              className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-[#FB87AC]/20 hover:text-[#FB87AC]"
+              className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-[#1a1c1c] transition hover:bg-[#f3f3f4] hover:text-[#705d00]"
             >
-              <IconLogin2 size={19} className="text-[#FB87AC]" />
-              Login
+              <IconLogin2 size={19} className="text-[#705d00]" />
+              Sign In
             </Link>
           )}
 
@@ -64,9 +64,9 @@ function UserMenu() {
             <Link
               to="/register"
               onClick={closeMenu}
-              className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-[#FB87AC]/20 hover:text-[#FB87AC]"
+              className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-[#1a1c1c] transition hover:bg-[#f3f3f4] hover:text-[#705d00]"
             >
-              <IconUserPlus size={19} className="text-[#FB87AC]" />
+              <IconUserPlus size={19} className="text-[#705d00]" />
               Register Account
             </Link>
           )}
@@ -75,19 +75,19 @@ function UserMenu() {
           <Link
             to="/cart"
             onClick={closeMenu}
-            className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-[#FB87AC]/20 hover:text-[#FB87AC]"
+            className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-[#1a1c1c] transition hover:bg-[#f3f3f4] hover:text-[#705d00]"
           >
-            <IconShoppingCart size={19} className="text-[#FB87AC]" />
+            <IconShoppingCart size={19} className="text-[#705d00]" />
             Shopping Cart
           </Link>
 
           {/* Logout */}
           {isAuthenticated && (
             <>
-              <div className="my-1.5 h-px bg-[#FB87AC]/20" />
+              <div className="my-1.5 h-px bg-[#e2e2e2]" />
               <button
                 onClick={handleLogout}
-                className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium text-rose-400 transition hover:bg-rose-500/10 hover:text-rose-300"
+                className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium text-rose-600 transition hover:bg-rose-50"
               >
                 <IconLogout2 size={19} />
                 Sign Out
@@ -100,4 +100,5 @@ function UserMenu() {
   );
 }
 
-export default UserMenu;
+export default UserMenu;
+
