@@ -1,13 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import ProductCards from "../components/ProductCards";
-import Footer from "../components/Footer";
+
 import Category_search from "../components/Category_search";
 import Pagination from "../components/Pagination";
+import { IconSparkles } from "@tabler/icons-react";
 
 import useDebounce from "../hooks/useDebounce";
-import HeroSection from "../components/hero/HeroSection";
-import HomeFeatures from "../components/hero/HomeFeatures";
+ 
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -67,14 +67,33 @@ function ProductList() {
       })
       .catch((err) => console.log(err));
   }, [BASE_URL]);
+
   if (loading) {
     return (
-      <div className="flex min-h-[400px] items-center justify-center bg-transparent py-16">
-        <div className="rounded-3xl border border-[#e2e2e2] bg-white px-10 py-8 text-center shadow-md">
-          <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-4 border-[#705d00] border-t-transparent"></div>
-          <p className="font-display text-base font-bold text-[#1a1c1c] tracking-wide">
-            Loading curated items...
+      <div className="flex min-h-[450px] flex-col items-center justify-center bg-transparent py-16">
+        <div className="relative flex flex-col items-center rounded-3xl border border-[#e2e2e2] bg-white px-12 py-10 text-center shadow-md">
+          {/* Animated Dual-Ring Luxury Gold Spinner */}
+          <div className="relative mb-6 h-16 w-16">
+            <div className="absolute inset-0 rounded-full border-4 border-[#ffd700]/30"></div>
+            <div className="absolute inset-0 animate-spin rounded-full border-4 border-[#705d00] border-t-transparent"></div>
+            <div className="absolute inset-2 flex items-center justify-center rounded-full bg-[#ffd700]/10 text-[#705d00]">
+              <IconSparkles size={22} className="animate-pulse text-[#705d00]" />
+            </div>
+          </div>
+
+          <h3 className="font-display text-lg font-extrabold text-[#1a1c1c] tracking-tight">
+            Curating Luxury Catalog...
+          </h3>
+          <p className="mt-1.5 font-body text-xs text-[#5f5e5e] font-normal">
+            Fetching handcrafted products for you
           </p>
+
+          {/* Dotted Animated Pulse Bar */}
+          <div className="mt-5 flex items-center justify-center gap-2">
+            <span className="h-2 w-2 animate-bounce rounded-full bg-[#705d00]"></span>
+            <span className="h-2 w-2 animate-bounce rounded-full bg-[#705d00] [animation-delay:0.2s]"></span>
+            <span className="h-2 w-2 animate-bounce rounded-full bg-[#705d00] [animation-delay:0.4s]"></span>
+          </div>
         </div>
       </div>
     );
