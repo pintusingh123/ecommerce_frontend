@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCart } from "../context/CardContext";
 import { useAuth } from "../context/AuthContext";
-import { IconArrowLeft, IconShoppingCart, IconSparkles, IconShieldCheck, IconTruck } from "@tabler/icons-react";
+import { IconArrowLeft, IconShoppingCart, IconShieldCheck, IconTruck } from "@tabler/icons-react";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -89,7 +89,7 @@ function ProductDetails() {
 
         <div className="overflow-hidden rounded-[36px] border border-[#e2e2e2] bg-white p-6 shadow-md lg:p-10">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            
+
             {/* Image Container */}
             <div className="relative overflow-hidden rounded-[28px] border border-[#e2e2e2] bg-[#f3f3f4] p-3 shadow-inner">
               <img
@@ -98,7 +98,7 @@ function ProductDetails() {
                 className="h-[440px] w-full rounded-[22px] object-cover transition duration-500 hover:scale-105"
               />
               <span className="absolute left-6 top-6 flex items-center gap-1.5 rounded-full border border-[#d0c6ab] bg-white/95 px-4 py-1.5 text-xs font-bold text-[#705d00] shadow-sm backdrop-blur-md">
-                <IconSparkles size={15} className="text-[#705d00]" /> Premium Quality
+                Premium Quality
               </span>
             </div>
 
