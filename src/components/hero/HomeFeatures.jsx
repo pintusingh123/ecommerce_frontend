@@ -44,9 +44,7 @@ function HomeFeatures() {
           THE JHALA PROMISE
         </span>
 
-        <h2 className="mt-3 font-display text-2xl font-black text-[#1a1c1c] sm:text-3xl lg:text-4xl tracking-tight">
-          Uncompromising Standards of Luxury
-        </h2>
+       
 
         <p className="mt-2 font-body text-xs sm:text-sm text-[#5f5e5e] font-normal max-w-xl mx-auto">
           Every piece is curated to deliver timeless royal heritage, certified authenticity, and effortless customer care.
