@@ -69,11 +69,11 @@ function ProductList() {
   }, [BASE_URL]);
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#f1f3f6]">
-        <div className="rounded-2xl px-8 py-6 text-center shadow-lg">
-          <div className="mx-auto mb-3 h-8 w-8 animate-spin rounded-full border-4 border-[#2874f0] border-t-transparent"></div>
-          <p className="text-lg font-semibold text-gray-700">
-            Loading amazing products...
+      <div className="flex min-h-[400px] items-center justify-center bg-transparent py-16">
+        <div className="rounded-3xl border border-[#FB87AC]/30 bg-[#160B18]/90 px-10 py-8 text-center shadow-2xl backdrop-blur-xl">
+          <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-4 border-[#FB87AC] border-t-transparent shadow-pink-glow"></div>
+          <p className="text-base font-bold text-white tracking-wide">
+            Loading curated items...
           </p>
         </div>
       </div>
@@ -82,51 +82,49 @@ function ProductList() {
 
   if (error) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#f1f3f6] px-4">
-        <div className="rounded-2xl bg-white px-8 py-6 text-center shadow-lg">
-          <h2 className="text-xl font-bold text-red-500">Oops!</h2>
-          <p className="mt-2 text-gray-600">{error}</p>
+      <div className="flex min-h-[400px] items-center justify-center bg-transparent px-4 py-16">
+        <div className="rounded-3xl border border-rose-500/30 bg-[#160B18]/90 px-10 py-8 text-center shadow-2xl backdrop-blur-xl">
+          <h2 className="text-2xl font-bold text-rose-400">Unable to load products</h2>
+          <p className="mt-2 text-sm text-slate-300 font-medium">{error}</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#080a0d] px-4 pt-6 sm:px-6 lg:px-4">
-      <div className="mx-auto max-w-7xl">
- 
+    <div className="py-6">
+      {/* Search and Category Filter */}
+      <Category_search
+        categories={categories}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
 
-        {/* searching and categories */}
-        <Category_search
-          categories={categories}
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {products.length > 0 ? (
-            products.map((product) => (
-              <ProductCards key={product.id} product={product} />
-            ))
-          ) : (
-            <p className="col-span-full rounded-2xl bg-white p-8 text-center text-gray-500 shadow-sm">
-              No Products Available..
-            </p>
-          )}
-        </div>
-
-        {/* pagination */}
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={setCurrentPage}
-        />
+      {/* Product Cards Grid */}
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {products && products.length > 0 ? (
+          products.map((product) => (
+            <ProductCards key={product.id} product={product} />
+          ))
+        ) : (
+          <div className="col-span-full rounded-3xl border border-[#FB87AC]/20 bg-[#160B18]/80 p-12 text-center backdrop-blur-xl shadow-xl">
+            <p className="text-lg font-bold text-white">No Items Found</p>
+            <p className="mt-2 text-sm text-slate-400 font-medium">Try searching for a different keyword or resetting your category filter.</p>
+          </div>
+        )}
       </div>
-    
+
+      {/* Pagination */}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
     </div>
   );
 }
 
 export default ProductList;
+

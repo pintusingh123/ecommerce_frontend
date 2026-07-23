@@ -21,14 +21,14 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
   if (totalPages <= 1) return null;
 
   return (
-    <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+    <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
       {/* Previous */}
       <button
         onClick={handlePrevious}
         disabled={currentPage === 1}
-        className="flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-all hover:border-blue-500 hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
+        className="flex items-center gap-2 rounded-2xl border border-[#FB87AC]/30 bg-[#160B18]/90 px-4 py-2.5 text-xs sm:text-sm font-bold text-white backdrop-blur-md transition-all hover:border-[#FB87AC] hover:bg-[#FB87AC]/20 disabled:cursor-not-allowed disabled:opacity-40"
       >
-        <IconChevronLeft size={18} />
+        <IconChevronLeft size={18} className="text-[#FB87AC]" />
         Previous
       </button>
 
@@ -37,10 +37,10 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
         <button
           key={page}
           onClick={() => onPageChange(page)}
-          className={`flex h-10 w-10 items-center justify-center rounded-xl text-sm font-semibold transition-all ${
+          className={`flex h-10 w-10 items-center justify-center rounded-2xl text-xs sm:text-sm font-bold transition-all ${
             currentPage === page
-              ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-              : "border border-zinc-700 bg-zinc-900 text-zinc-300 hover:border-blue-500 hover:bg-zinc-800"
+              ? "bg-gradient-to-r from-[#FB87AC] to-[#E86591] text-slate-950 shadow-pink-glow scale-105"
+              : "border border-[#FB87AC]/30 bg-[#160B18]/90 text-slate-300 hover:border-[#FB87AC] hover:bg-[#FB87AC]/20"
           }`}
         >
           {page}
@@ -51,13 +51,13 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
       <button
         onClick={handleNext}
         disabled={currentPage === totalPages}
-        className="flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-all hover:border-blue-500 hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
+        className="flex items-center gap-2 rounded-2xl border border-[#FB87AC]/30 bg-[#160B18]/90 px-4 py-2.5 text-xs sm:text-sm font-bold text-white backdrop-blur-md transition-all hover:border-[#FB87AC] hover:bg-[#FB87AC]/20 disabled:cursor-not-allowed disabled:opacity-40"
       >
         Next
-        <IconChevronRight size={18} />
+        <IconChevronRight size={18} className="text-[#FB87AC]" />
       </button>
     </div>
   );
 }
 
-export default Pagination;
+export default Pagination;

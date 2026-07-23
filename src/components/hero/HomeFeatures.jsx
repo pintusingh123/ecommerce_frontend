@@ -8,23 +8,23 @@ import {
 const features = [
   {
     icon: IconTruckDelivery,
-    title: "Free Delivery",
-    desc: "On orders above ₹999",
+    title: "Free Express Shipping",
+    desc: "On all orders above ₹999",
   },
   {
     icon: IconShieldCheck,
-    title: "Secure Payment",
-    desc: "100% protected checkout",
+    title: "100% Secure Checkout",
+    desc: "Encrypted transaction protection",
   },
   {
     icon: IconRefresh,
-    title: "Easy Returns",
-    desc: "7-day hassle-free returns",
+    title: "Instant Easy Returns",
+    desc: "7-day hassle-free exchange",
   },
   {
     icon: IconHeadset,
-    title: "24/7 Support",
-    desc: "Always here to help",
+    title: "24/7 Concierge Support",
+    desc: "Dedicated personal customer care",
   },
 ];
 
@@ -38,17 +38,17 @@ function HomeFeatures() {
           return (
             <div
               key={index}
-              className="group rounded-2xl border border-zinc-800 bg-[#111827] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500"
+              className="group rounded-3xl border border-[#FB87AC]/20 bg-[#160B18]/80 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-[#FB87AC] hover:shadow-pink-glow-sm"
             >
-              <div className="mb-4 inline-flex rounded-xl bg-blue-600/10 p-3 text-blue-400">
+              <div className="mb-4 inline-flex rounded-2xl bg-[#FB87AC]/15 p-3.5 text-[#FB87AC] transition duration-300 group-hover:scale-110 group-hover:bg-[#FB87AC] group-hover:text-slate-950">
                 <Icon size={26} />
               </div>
 
-              <h3 className="text-lg font-semibold text-white">
+              <h3 className="text-lg font-bold text-white tracking-tight">
                 {item.title}
               </h3>
 
-              <p className="mt-2 text-sm text-zinc-400">
+              <p className="mt-1.5 text-xs sm:text-sm text-slate-400 font-medium">
                 {item.desc}
               </p>
             </div>
@@ -59,4 +59,4 @@ function HomeFeatures() {
   );
 }
 
-export default HomeFeatures;
+export default HomeFeatures;
