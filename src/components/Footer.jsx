@@ -14,6 +14,8 @@ import {
   IconHeadset,
 } from "@tabler/icons-react";
 
+import Logo from "./Logo";
+
 const Footer = () => {
   return (
     <footer className="w-full mt-24 border-t-2 border-[#705d00]/30 bg-[#121417] text-white shadow-2xl">
@@ -49,17 +51,7 @@ const Footer = () => {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-2 lg:grid-cols-4">
         {/* Brand Column */}
         <div className="space-y-4">
-          <Link
-            to="/"
-            className="flex items-center gap-3 text-2xl font-extrabold tracking-tight text-white"
-          >
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#705d00] text-white shadow-sm">
-              <IconSparkles size={22} className="text-[#ffd700]" />
-            </span>
-            <span className="font-display font-black text-2xl">
-              Jhala<span className="text-[#ffd700]">Collection</span>
-            </span>
-          </Link>
+          <Logo dark={true} />
 
           <p className="font-body text-xs sm:text-sm leading-relaxed text-slate-300 font-normal">
             Handcrafted luxury home decor, premium apparel, lifestyle essentials, and curated fashion pieces designed for sophisticated living.

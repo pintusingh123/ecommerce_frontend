@@ -4,6 +4,8 @@ import { useCart } from "../context/CardContext";
 import UserMenu from "./UserMenu";
 import { IconShoppingCart, IconSparkles } from "@tabler/icons-react";
 
+import Logo from "./Logo";
+
 function Navbar() {
   const cartContext = useCart();
 
@@ -15,20 +17,10 @@ function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-[#e2e2e2] bg-white/95 backdrop-blur-md shadow-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         
         {/* Brand Logo */}
-        <Link
-          to="/"
-          className="group flex items-center gap-3 text-xl sm:text-2xl font-extrabold tracking-tight text-[#1a1c1c] transition hover:opacity-90"
-        >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#705d00] text-white shadow-gold-subtle transition-transform duration-300 group-hover:scale-105">
-            <IconSparkles size={20} className="text-[#ffd700]" />
-          </span>
-          <span className="font-display font-black tracking-tight text-[#1a1c1c]">
-            Jhala<span className="text-[#705d00]">Collection</span>
-          </span>
-        </Link>
+        <Logo />
 
         {/* Action Items */}
         <div className="flex items-center gap-4">
