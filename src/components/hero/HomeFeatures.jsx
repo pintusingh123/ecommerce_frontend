@@ -4,7 +4,7 @@ import {
   IconCertificate,
   IconRefresh,
   IconHeadset,
-  IconSparkles,
+ 
 } from "@tabler/icons-react";
 
 const features = [
@@ -40,7 +40,7 @@ function HomeFeatures() {
       {/* Section Header */}
       <div className="mb-10 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-[#d0c6ab] bg-[#ffd700]/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#705d00] shadow-sm">
-          <IconSparkles size={16} className="text-[#705d00]" />
+         
           THE JHALA PROMISE
         </span>
 

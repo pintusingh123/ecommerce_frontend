@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 
 import {
   IconArrowRight,
-  IconSparkles,
+
   IconChevronLeft,
   IconChevronRight,
   IconShieldCheck,
@@ -63,7 +63,7 @@ function HeroSection() {
         ))}
 
         {/* Custom Navigation Arrows */}
-       
+
         {/* Custom Pagination Dots Container */}
         <div className="hero-swiper-pagination absolute bottom-6 left-0 right-0 z-20 flex justify-center gap-2 [&_.swiper-pagination-bullet-active]:!bg-[#ffd700] [&_.swiper-pagination-bullet-active]:!w-8 [&_.swiper-pagination-bullet]:!bg-white/60 [&_.swiper-pagination-bullet]:!h-2.5 [&_.swiper-pagination-bullet]:!rounded-full [&_.swiper-pagination-bullet]:transition-all"></div>
       </Swiper>
@@ -78,7 +78,7 @@ function HeroSection() {
           <div className="max-w-3xl">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-[#ffd700]/50 bg-black/60 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#ffd700] backdrop-blur-md shadow-md">
-                <IconSparkles size={16} className="text-[#ffd700]" />
+              
                 WELCOME TO JHALACOLLECTION
               </span>
             </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IconArrowRight, IconSparkles } from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
 
 function ProductCards({ product }) {
   return (
@@ -15,7 +15,7 @@ function ProductCards({ product }) {
             alt={product.name}
           />
           <span className="absolute left-4 top-4 flex items-center gap-1 rounded-full border border-[#d0c6ab] bg-white/90 px-3 py-1 text-[11px] font-bold text-[#705d00] shadow-sm backdrop-blur-md">
-            <IconSparkles size={13} className="text-[#705d00]" />
+             
             Featured
           </span>
         </div>
