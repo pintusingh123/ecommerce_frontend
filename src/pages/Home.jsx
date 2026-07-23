@@ -6,8 +6,11 @@ import ProductList from "./ProductList";
 function Home() {
   return (
     <div className="min-h-screen bg-[#f9f9f9] flex flex-col justify-between">
-      <div className="mx-auto w-full max-w-7xl px-4 pt-6 sm:px-6 lg:px-8 flex-1">
-        <HeroSection />
+      {/* 100% Full-Width Edge-to-Edge Hero Slider */}
+      <HeroSection />
+
+      {/* Padded Center Container for Features & Products */}
+      <div className="mx-auto w-full max-w-7xl px-4 pt-8 sm:px-6 lg:px-8 flex-1">
         <HomeFeatures />
         <div id="products">
           <ProductList />
