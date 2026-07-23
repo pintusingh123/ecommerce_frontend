@@ -12,7 +12,7 @@ import {
   IconPhone,
   IconClock,
   IconCheck,
-  IconSparkles,
+  
   IconAlertCircle,
 } from "@tabler/icons-react";
 
@@ -108,7 +108,7 @@ function ContactUs() {
           {/* Header */}
           <div className="mb-10 text-center max-w-2xl mx-auto">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#d0c6ab] bg-[#f3f3f4] px-4 py-1.5 text-xs font-bold text-[#705d00]">
-              <IconSparkles size={16} /> WE'RE HERE TO HELP
+              WE'RE HERE TO HELP
             </span>
             <h1 className="font-display text-3xl sm:text-4xl font-extrabold text-[#1a1c1c] tracking-tight mt-3">
               Contact <span className="text-[#705d00]">JhalaCollection</span>

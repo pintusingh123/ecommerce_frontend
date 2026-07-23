@@ -7,7 +7,7 @@ import {
   IconMail,
   IconMapPin,
   IconPhone,
-  IconSparkles,
+
   IconArrowRight,
   IconShieldCheck,
   IconTruckDelivery,
@@ -23,9 +23,7 @@ const Footer = () => {
       <div className="border-b border-white/10 bg-[#1a1d21]/80 px-6 py-10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
           <div>
-            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#ffd700]">
-              <IconSparkles size={16} /> VIP Insider Access
-            </span>
+
             <h3 className="font-display text-2xl font-extrabold text-white tracking-tight sm:text-3xl mt-1">
               Join The JhalaCollection Club
             </h3>
