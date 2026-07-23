@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCart } from "../context/CardContext";
+import { useAuth } from "../context/AuthContext";
 import { IconArrowLeft, IconShoppingCart, IconSparkles, IconShieldCheck, IconTruck } from "@tabler/icons-react";
 
 function ProductDetails() {
@@ -33,7 +34,12 @@ function ProductDetails() {
       });
   }, [id, BASEURL]);
 
+  const { isAuthenticated } = useAuth();
   const handleAddToCart = () => {
+    if (!isAuthenticated) {
+      alert("Please login first.");
+      return;
+    }
     addToCart(product.id);
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
